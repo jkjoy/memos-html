@@ -1,0 +1,206 @@
+<!doctype html>
+    <html lang=zh-cn>
+	<head>
+		<title>朋友圈 - Memos.im</title>
+		<meta charset=utf-8>
+		<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+		<meta name=referrer content="never">
+		<link rel=stylesheet href=./css/grid.css>
+		<link rel=stylesheet href=./css/style.css>
+		<link rel="shortcut icon" type=image/x-icon href=./favicon.ico>
+		<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+		<script type=text/javascript src=./js/jquery.min.js></script>
+		<link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+	</head>
+	<body class=dark-theme>
+		<div class=layout>
+			<header id=header class=header>
+				<div class=container>
+					<div class=row>
+						<div class=col-12>
+							<div class=header-inner>
+	                        <span class=header-center>
+		                    <nav class="menu d-none d-md-flex">
+								<ul class="menu-inner menu-inner-desktop">
+									<li class=menu-item>
+										<i class="ri-home-line"></i><a href=/>首页</a>
+									</li>
+									<li class=menu-item>
+										<i class="ri-camera-fill"></i><a href=/album.html>相册</a>
+									</li>
+									<li class=menu-item>
+										<i class="ri-thumb-up-line"></i><a href=/goods.html>好物</a>
+									</li>
+									<li class=menu-item>
+										<i class="ri-list-check-3"></i><a href=/list.html>清单</a>
+									</li>	
+												  <li class=menu-item>
+										<i class="ri-link"></i><a href=/links.html>链接</a>
+									</li>
+												<li class=menu-item>
+										<i class="ri-rss-line"></i><a href=/friends.html>朋友</a>
+									</li>
+									  <li class=menu-item>
+										<i class="ri-at-line"></i><a href=/about.html>关于</a>
+									</li>
+								</ul>
+		</nav>
+			<div id=sidebar-menus>
+				<div class="row px-3">
+					<div class=col-12>
+						<div class="menu-list sidebar">
+							<div class=sidebar-title>主题</div>
+							<div class=sidebar-content>
+								<div class="theme-toggle sidebar-toggle">
+									<span class="iconfont iconnight-mode">
+									</span>
+	                                <span class=px-2>显示模式</span>
+                                </div>
+                            </div>
+                        </div>
+<div class="menu-list sidebar">
+    <div class=sidebar-title>目录</div>
+	<div class=sidebar-content>
+        <div class="menu-list row row-y">
+            <div class="menu-item col-6 py-2">
+                <a href=/>首页</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/about.html>关于</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/friends.html>朋友</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/links.html>链接</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/album.html>相册</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/goods.html>好物</a>
+            </div>
+             <div class="menu-item col-6 py-2">
+                <a href=/list.html>清单</a>
+            </div>
+        </div>
+	</div>
+</div>
+         <div class="menu-list sidebar">
+	     <div class=sidebar-content>
+		<div class="menu-list row row-y">
+			<div class="menu-item col-6 py-2">
+			</div>
+			<div class="menu-item col-6 py-2">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="menu-list sidebar">
+	<div class=sidebar-content>
+		<div class="menu-list row row-y">
+			<div class="menu-item col-6 py-2">
+			</div>
+			<div class="menu-item col-6 py-2">
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</span>
+<span class=header-right>
+	<span class="menu-trigger d-flex d-md-none">
+		<span class="iconfont iconmenu">
+
+		</span>
+</span>
+	<span class="theme-toggle d-none d-md-flex">
+		<span class="iconfont iconnight-mode">
+		</span>
+		</span>
+		</span>
+		</div>
+		</div>
+		</div>
+		</div>
+		</header>
+		<section class=content>
+			<div class=content-header>
+				<div class=container>
+					<div class=header-title>
+						<h1 class=title>朋友圈</h1>
+					</div>
+				</div>
+			</div>
+			<div class="archive mt-3">
+				<div class=container>
+                <div class="links"></div>
+            </div>
+<script>
+var linksUrl = 'https://fr.jiong.us/data.json';
+var linksDom = document.querySelector('.links');
+if (linksDom) {
+	getLinks()
+}
+function getLinks() {
+  fetch(linksUrl).then(res => res.json()).then(resdata => {
+  updateHtml(resdata.article_data);
+  });
+}
+function updateHtml(data){
+  var result = "",
+  resultAll = "";
+  for (var i = 0; i < data.length; i++) {
+    let author = data[i].author,
+    avatar = data[i].avatar,
+    title = data[i].title,
+    link = data[i].link,
+    floor = data[i].floor,
+    created = data[i].created;
+    result +=
+    '<div class="col-12 mt-3"><div class="item-body flex-fill p-3"><div class="item-header d-flex mb-3"><div class="item-avatar mr-3" style="background-image:url('+ avatar +'); background-size: contain; background-repeat: no-repeat; width: 25px; height: 25px;"></div><div class="item-sub"><div class="item-creator">'+ author +'</div></div></div><div class ="item-content d-flex flex-fill flex-column"><div class="item-inner flex-fill my-2"><a href="'+link+'" target="_blank">'+ title+'</a></div><div class="item-footer d-flex mt-2"><div class="item-time item-tag d-flex align-items-center px-2 text-xs">'+created+'</div><div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><i class="iconfont iconthunderbolt"></i><span class="ml-1">'+floor+'</span></div></div></div></div></div></div>';
+  }
+  resultAll = result
+  linksDom.insertAdjacentHTML('beforeend', resultAll);
+}
+</script>		
+
+<!--<script>document.addEventListener("DOMContentLoaded",()=>{initlinks()});function initlinks(){var i,n="8",e=1,o=0,t=0,a=[],u="https://fr.jiong.us/data.json",r=document.querySelector(".links"),s=localStorage.getItem("fcircle-ins-links"),h='<div class="load d-flex justify-content-center"><button class="load-btn button-load flex-fill mb-3">加载中</button></div>';r.insertAdjacentHTML("afterend",h),s?l():c(),i=document.querySelector("button.button-load"),i.addEventListener("click",function(){i.textContent="加载中",e<t&&e++,s=localStorage.getItem("fcircle-ins-links"),s?l():c()});function c(){fetch(u).then(e=>e.json()).then(s=>{let i=JSON.stringify(s.article_data);if(localStorage.setItem("fcircle-ins-links",i),d(s.article_data),t=Math.ceil(s.article_data.length/n),o=t-1,e>o){document.querySelector("button.button-load").remove();return}})}function l(){var i=JSON.parse(s);if(d(i),t=Math.ceil(i.length/n),o=t-1,e>o){document.querySelector("button.button-load").remove();return}}function d(t){a=[];for(var s=e*n-1,s=s>=t.length?t.length-1:s,o=e*n-n;o<=s;o++)a.push(t[o]);m(a)}function m(e){for(var n="",s="",t=0;t<e.length;t++){let s=e[t].author,o=e[t].avatar,i=e[t].title,a=e[t].link,r=e[t].floor,c=e[t].created;n+='<div class="col-12 mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="item-avatar mr-3" style="background-image:url('+o+')"></div><div class="item-sub"><div class="item-creator">'+s+'</div></div></div><div class ="item-content d-flex flex-fill flex-column"><div class="item-inner flex-fill my-2"><a href="'+a+'" target="_blank">'+i+'</a></div><div class="item-footer d-flex mt-2"><div class="item-time item-tag d-flex align-items-center px-2 text-xs">'+c+'</div><div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><i class="iconfont iconthunderbolt"></i><span class="ml-1">'+r+"</span></div></div></div></div></div></div>"}s=n,r.insertAdjacentHTML("beforeend",s),document.querySelector("button.button-load").textContent="加载更多",window.Lately&&Lately.init({target:".item-time"})}}</script> -->
+				</div>
+			</div>
+		</section>
+	<footer class="footer">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-12">
+					<div class="footer-content">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="copyright justify-content-center justify-content-md-start">
+									<span class="align-items-center">© 2023
+										<span class="d-none d-sm-inline">
+											<span class="px-2">⋅</span> 
+											Powered by 囧
+										</span></span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	</footer>
+	<div id="mask" class="mask"></div>
+	<div class="backtop d-none">
+		<i class="iconfont iconup" aria-hidden="true"></i>
+		</div>	
+	<script type="text/javascript" src="./js/all.js"></script>
+	<script type="text/javascript" src="./js/lately.min.js"></script>
+	<script type="text/javascript" src="./js/view-image.min.js"></script>
+	<script async src="https://u.jiong.us/script.js" data-website-id="63ac80a0-bdda-4ffc-9277-bb0a1edfd2b8"></script>
+	</div>
+	
+	</body>
+
+	</html>

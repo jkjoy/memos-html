@@ -1,0 +1,200 @@
+<!doctype html><html lang=zh-cn>
+	<head>
+		<title>相册 - Memos.im</title>
+		<meta charset=utf-8>
+		<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+		<meta name=referrer content="never">
+		<link rel=stylesheet href=./css/grid.css>
+		<link rel=stylesheet href=./css/style.css>
+		<link rel="shortcut icon" type=image/x-icon href=./favicon.ico>
+		<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+		<link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+		<script type=text/javascript src=./js/jquery.min.js></script>
+	</head>
+	<body class=dark-theme>
+		<div class=layout>
+			<header id=header class=header>
+				<div class=container>
+					<div class=row>
+						<div class=col-12>
+							<div class=header-inner>
+	<span class=header-center>
+		<nav class="menu d-none d-md-flex">
+		<ul class="menu-inner menu-inner-desktop">
+			<li class=menu-item>
+				<i class="ri-home-line"></i><a href=/>首页</a>
+			</li>
+            <li class=menu-item>
+				<i class="ri-camera-fill"></i><a href=/album.html>相册</a>
+			</li>
+			<li class=menu-item>
+				<i class="ri-thumb-up-line"></i><a href=/goods.html>好物</a>
+			</li>
+			<li class=menu-item>
+				<i class="ri-list-check-3"></i><a href=/list.html>清单</a>
+			</li>	
+			          	<li class=menu-item>
+			    <i class="ri-link"></i><a href=/links.html>链接</a>
+			</li>
+						<li class=menu-item>
+				<i class="ri-rss-line"></i><a href=/friends.html>朋友</a>
+			</li>
+          	<li class=menu-item>
+				<i class="ri-at-line"></i><a href=/about.html>关于</a>
+			</li>
+		</ul>
+		</nav>
+			<div id=sidebar-menus>
+				<div class="row px-3">
+					<div class=col-12>
+						<div class="menu-list sidebar">
+							<div class=sidebar-title>主题</div>
+							<div class=sidebar-content>
+								<div class="theme-toggle sidebar-toggle">
+									<span class="iconfont iconnight-mode">
+									</span>
+	                                <span class=px-2>显示模式</span>
+                                </div>
+                            </div>
+                        </div>
+<div class="menu-list sidebar">
+    <div class=sidebar-title>目录</div>
+	<div class=sidebar-content>
+        <div class="menu-list row row-y">
+            <div class="menu-item col-6 py-2">
+                <a href=/>首页</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/about.html>关于</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/friends.html>朋友</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/links.html>链接</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/album.html>相册</a>
+            </div>
+            <div class="menu-item col-6 py-2">
+                <a href=/goods.html>好物</a>
+            </div>
+             <div class="menu-item col-6 py-2">
+                <a href=/list.html>清单</a>
+            </div>
+        </div>
+	</div>
+</div>
+         <div class="menu-list sidebar">
+	     <div class=sidebar-content>
+		<div class="menu-list row row-y">
+			<div class="menu-item col-6 py-2">
+			</div>
+			<div class="menu-item col-6 py-2">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="menu-list sidebar">
+	<div class=sidebar-content>
+		<div class="menu-list row row-y">
+			<div class="menu-item col-6 py-2">
+			</div>
+			<div class="menu-item col-6 py-2">
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</span>
+<span class=header-right>
+	<span class="menu-trigger d-flex d-md-none">
+		<span class="iconfont iconmenu">
+
+		</span>
+</span>
+	<span class="theme-toggle d-none d-md-flex">
+		<span class="iconfont iconnight-mode">
+		</span>
+		</span>
+		</span>
+		</div>
+		</div>
+		</div>
+		</div>
+		</header>
+		<section class=content>
+			<div class=content-header>
+				<div class=container>
+					<div class=header-title>
+						<h1 class=title>相册</h1>
+					</div>
+				</div>
+			</div>
+			<div class="archive mt-3">
+				<div class=container>
+					<div class="gallery-photos page"><img src="/img/loading.svg" style="margin:auto">
+</div>
+				</div>
+			</div>
+		</section>
+
+<!-- 复制以下内容，上方内容是为了避免一些人看不懂放在哪 -->
+<style>
+#article-container a img {margin: 0; border-radius:0;}
+.gallery-photos{width:100%;margin-top: 10px;}
+.gallery-photo{min-height:5rem;width:24.97%;padding:4px;position: relative;}
+.gallery-photo a{border-radius:8px;display:block;overflow: hidden;}
+.gallery-photo img{display: block;width:100%;animation: fadeIn 1s;cursor: pointer;transition: all .4s ease-in-out !important;}
+.gallery-photo span.photo-title,.gallery-photo span.photo-time{max-width: calc(100% - 7px);line-height:1.8;position:absolute;left:4px;font-size:14px;background: rgba(0, 0, 0, 0.3);padding:0px 8px;color: #fff;animation: fadeIn 1s;}
+.gallery-photo span.photo-title{bottom:4px;border-radius: 0 8px 0 8px;}
+.gallery-photo span.photo-time{top:4px;border-radius: 8px 0 8px 0;}
+.gallery-photo:hover img{transform: scale(1.1);}
+@media screen and (max-width: 1100px) {.gallery-photo{width:33.3%;}}
+@media screen and (max-width: 768px) {
+	.gallery-photo{width:49.9%;padding:3px}
+	.gallery-photo span.photo-time{display:none}
+	.gallery-photo span.photo-title{font-size:12px}
+    .gallery-photo span.photo-title{left:3px;bottom:3px;}
+}
+@keyframes fadeIn{0% {opacity: 0;}100%{opacity: 1;}}
+</style>
+<script defer src="./js/waterfall.min.js"></script>
+<script defer src="./js/imgStatus.min.js"></script>
+<script defer src="./js/lately.min.js"></script>
+<script defer src="./js/xxxx.js?v1"></script>
+	<footer class="footer">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-12">
+					<div class="footer-content">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="copyright justify-content-center justify-content-md-start">
+									<span class="align-items-center">© 2023
+										<span class="d-none d-sm-inline">
+											<span class="px-2">⋅</span> 
+											Powered by 囧
+										</span></span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	</footer>
+	<div id="mask" class="mask"></div>
+	<div class="backtop d-none">
+		<i class="iconfont iconup" aria-hidden="true"></i>
+		</div>	
+	<script type="text/javascript" src="./js/all.js"></script>
+	<script type="text/javascript" src="./js/lately.min.js"></script>
+	<script type="text/javascript" src="./js/view-image.min.js"></script>
+ 
+	</div>
+	
+	</body>
+
+	</html>
