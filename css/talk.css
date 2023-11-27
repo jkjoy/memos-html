@@ -421,3 +421,33 @@
 .iconsend:before {
   content: "\e916";
 }
+@font-face {
+  font-family: "iconfont"; /* Project id 4347327 */
+  src: url('//at.alicdn.com/t/c/font_4347327_ui33fem84s.woff2?t=1701055535439') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4347327_ui33fem84s.woff?t=1701055535439') format('woff'),
+       url('//at.alicdn.com/t/c/font_4347327_ui33fem84s.ttf?t=1701055535439') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clock:before {
+  content: "\e65b";
+}
+
+.icon-clock-fill:before {
+  content: "\e7d7";
+}
+
+.icon-clock1:before {
+  content: "\e819";
+}
+
+.icon-clock-filling:before {
+  content: "\e689";
+}
