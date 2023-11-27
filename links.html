@@ -9,9 +9,9 @@
 		<link rel=stylesheet href=./css/list.css>
 		<link rel="shortcut icon" type=image/x-icon href=./favicon.ico>
 		<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+                <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+                <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+                <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
 		<script type=text/javascript src=./js/jquery.min.js></script>
 	</head>
 	<body class=dark-theme>
@@ -138,152 +138,22 @@
 			</div>
 			<div class="archive mt-3">
 				<div class=container>
-					
-
-<style>
-    .clearfix {
-        zoom: 1;
-    }
-
-    .clearfix:after {
-        content: '.';
-        display: block;
-        visibility: hidden;
-        height: 0;
-        clear: both;
-    }
-
-    .readers-list {
-        list-style: none;
-    }
-
-    .readers-list * {
-        margin: 0;
-        padding: 0;
-    }
-
-    .readers-list li {
-        position: relative;
-        float: left;
-        margin-top: 20px !important;
-        padding: 0 10px;
-    }
-
-    .readers-list li a {
-        display: block;
-        border: 1px solid #eee;
-        border-left: 3px solid #FF002B;
-        border-radius: 7px;
-        padding-left: 15px;
-        transition: all .3s;
-        color: white;
-    }
-
-    .readers-list li:nth-of-type(6n+1) a {
-        border-left-color: #FF002B;
-    }
-
-    .readers-list li:nth-of-type(6n+2) a {
-        border-left-color: #FFA900;
-    }
-
-    .readers-list li:nth-of-type(6n+3) a {
-        border-left-color: #00CC00;
-    }
-
-    .readers-list li:nth-of-type(6n+4) a {
-        border-left-color: #00CCFF;
-    }
-
-    .readers-list li:nth-of-type(6n+5) a {
-        border-left-color: #0089FA;
-    }
-
-    .readers-list li:nth-of-type(6n+6) a {
-        border-left-color: #404040;
-    }
-
-    .readers-list li a div {
-        padding: 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: #999;
-    }
-
-    .readers-list li a div:first-child {
-        border-bottom: 1px dashed #eee;
-        font-size: 1.3em;
-        color: #666;
-    }
-
-    .readers-list li a:hover {
-        -webkit-transform: translateY(-6px);
-        transform: translateY(-6px);
-        box-shadow: 0 26px 40px -24px rgba(0, 0, 0, 0.3);
-    }
-
-    .link-title {
-        position: relative;
-        left: -19px;
-        display: inline-block;
-        margin: 20px 0;
-        font-size: 15px;
-        padding: 0 30px 0 25px;
-        height: 45px;
-        line-height: 45px;
-        border-radius: 0 35px 35px 0;
-        background: #404040;
-        color: #fff;
-    }
-
-    .page-common ul li,
-    .page-common ol li {
-        margin-bottom: 12px;
-    }
-
-    .page-friends ul {
-        padding: 0;
-        margin: 0;
-    }
-</style>
-
-<div class="page-friends page-common">
-    <ul class="readers-list clearfix" id="friend_list">
-        正在加载
-    </ul>
-</div>
-<script>
-    var friend_list = document.getElementById('friend_list')
-    fetch('https://m.sunpeiwen.com/api/friends?isVis=True')
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(function (data) {
-            // 随机打乱数据
-            var shuffledData = data.sort(function () {
-                return 0.5 - Math.random();
-            });
-
-            var content = '';
-            shuffledData.forEach(element => {
-                content += `<li class="wow slideInUp animated" style="animation-name: slideInUp;">
-                <a target="_blank" href="${element.link}">
-                    <div>${element.name}</div>
-                </a>
-            </li>`;
-            });
-
-            friend_list.innerHTML = content;
-        })
-        .catch(function (error) {
-            console.error('Error:', error);
-        });
-
-</script>
+<div class="card col-lg-4 col-md-6 col-sm-12">
+      <a href="https://www.uusb.cf/" class="card-body hover-with-bg" target="_blank" rel="noopener">
+        <div class="card-content">
+          
+            <div class="link-avatar my-auto">
+              <img src="https://q1.qlogo.cn/g?b=qq&amp;nk=726817119&amp;s=640" srcset="/img/loading.gif" lazyload alt="江小白"
+                   onerror="this.onerror=null; this.src=this.srcset='/img/avatar.png'"/>
+            </div>
+          
+          <div class="link-text">
+            <div class="link-title">江小白</div>
+            <div class="link-intro">一个啥都分享的博客网站</div>
+          </div>
+        </div>
+      </a>
+    </div>
 </div>
 
 
