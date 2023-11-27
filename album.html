@@ -8,8 +8,8 @@
 		<link rel=stylesheet href=./css/style.css>
 		<link rel="shortcut icon" type=image/x-icon href=./favicon.ico>
 		<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+                <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+                <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
 		<link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
 		<script type=text/javascript src=./js/jquery.min.js></script>
 	</head>
@@ -144,8 +144,70 @@
 		</section>
 
 <!-- 复制以下内容，上方内容是为了避免一些人看不懂放在哪 -->
- 
-	<script>document.addEventListener("DOMContentLoaded",()=>{memoAlbum()});var albumDom=document.querySelector(".album"),skeleton='<div class="el-loading"><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div></div>';albumDom.innerHTML=skeleton;function memoAlbum(){var e,o="12",n=1,r=0,i=0,c="",f="https://t.memos.ee",m="https://cdn.chaihu.top/memos/loading.svg",a=[],d=`${f}/api/v1/memo?creatorId=1&tag=照片`,t=JSON.parse(localStorage.getItem("nuoea-memos-album")),u='<div class="load width-100 justify-content-center"><button class="load-btn button-load flex-fill d-none mb-3 p-3">加载中</button></div>';albumDom.insertAdjacentHTML("afterend",u),h(),e=document.querySelector("button.button-load"),e&&e.addEventListener("click",function(){e.textContent="加载中",n<i&&n++,t=JSON.parse(localStorage.getItem("nuoea-memos-album")),t?s(t):cocoMessage.error("出错了，请刷新页面后重试！")});async function h(){const n=await fetch(d).then(e=>e.json()).then(n=>{if(albumDom.innerHTML="",e.classList.remove("d-none"),t){const e=n[0].updatedTs;c=t[0].updatedTs,e!=c?(localStorage.setItem("nuoea-memos-album",JSON.stringify(n)),s(n)):s(t)}else localStorage.setItem("nuoea-memos-album",JSON.stringify(n)),s(n)}).catch(n=>{t?(albumDom.innerHTML="",e.classList.remove("d-none"),s(t)):cocoMessage.error("网络错误")})}function l(e){return e.reduce((e,t)=>e.concat(Array.isArray(t)?l(t):t),[])}function s(e){var t=/!\[.*?\]\((.*?)\)/g,n=e.map(e=>{var n=e.content.match(t);return[].concat(...n)});p(n)}function p(e){var t=l(e);if(g(t),i=Math.ceil(t.length/o),r=i-1,n>r){document.querySelector("button.button-load").remove();return}}function g(e){a=[];for(var t=n*o-1,t=t>=e.length?e.length-1:t,s=n*o-o;s<=t;s++)a.push(e[s]);v(a)}function v(t){for(var i,a,r,n="",o="",s=0;s<t.length;s++){let a=t[s].replace(/!\[.*?\]\((.*?)\)/g,"$1"),e=t[s].replace(/!\[(.*?)\]\(.*?\)/g,"$1"),o=e.split(",")[0],i=e.split(",")[1];n+='<div class="album-item memo-resource width-100 animate__animated"><img class="lozad" src="'+m+'" data-src="'+a+'"><div class="item-content item-fadein is-feature width-100 c-light p-2">',i?n+='<span class="title weight-600 mb-1">'+i+"</span>":"",o?n+='<span class="date text-xs">'+o+"</span>":"",n+="</div></div>"}i='<div class="resource-wrapper mb-3"><div class="images-wrapper images-scale">',a="</div></div>",o=i+n+a,albumDom.insertAdjacentHTML("beforeend",o),e&&(e.textContent="加载更多"),animation(),window.Lately&&Lately.init({target:".date"}),r=lozad(".lozad"),r.observe()}}</script>
+<style>
+/* 页面初始化 */
+.page-title{display: none;}
+.page-top-card {border-radius: 12px;}
+/* 页面初始化结束 */
+#article-container a img {margin: 0; border-radius:0;}
+.gallery-photos{width:100%;margin-top: 10px;}
+.gallery-photo{min-height:5rem;width:24.97%;padding:4px;position: relative;}
+.gallery-photo a{display:block;overflow: hidden;border: var(--leonus-border);}
+.gallery-photo img{display: block;width:100%;animation: fadeIn 1s;cursor: pointer;transition: all .4s ease-in-out !important;}
+.gallery-photo span.photo-title,.gallery-photo span.photo-time{max-width: calc(100% - 7px);position:absolute;line-height:1.8;left:4px;font-size:14px;background: rgba(0, 0, 0, 0.3);padding:0px 8px;color: #fff;animation: fadeIn 1s;}
+.gallery-photo span.photo-title{bottom:4px;}
+.gallery-photo span.photo-time{top:4px;}
+.gallery-photo:hover img{transform: scale(1.1);}
+@media screen and (max-width: 1100px) {
+    .gallery-photo{width:33.3%;}
+}
+@media screen and (max-width: 900px) {.page-top-card {margin: 0;}}
+@media screen and (max-width: 768px) {
+    .gallery-photo{width:49.9%;padding:3px}
+    .gallery-photo span.photo-time{display:none}
+    .page-top-card {border-radius: 8px;}
+    .gallery-photo span.photo-title{left:3px;bottom:3px;}
+}
+@keyframes fadeIn{0% {opacity: 0;}100%{opacity: 1;}}
+</style>			
+<script>
+if (1) {
+    let url = 'https://t.memos.ee' // 修改api
+    fetch(url + '/api/v1/memo?creatorId=1&tag=照片').then(res => res.json()).then(data => {
+        let html = '',
+            imgs = []
+        data.forEach(item => {
+            let ls = item.content.match(/\!\[.*?\]\(.*?\)/g)
+            if (ls) imgs = imgs.concat(ls)
+            if (item.resourceList.length) {
+                item.resourceList.forEach(t => {
+                    if (t.externalLink) imgs.push(`![](${t.externalLink})`)
+                    else imgs.push(`![](${url}/o/r/${t.id}/${t.publicId}/${t.filename})`)
+                })
+            }
+        })
+
+        if (imgs) imgs.forEach(item => {
+            let img = item.replace(/!\[.*?\]\((.*?)\)/g, '$1'),
+                time, title, tat = item.replace(/!\[(.*?)\]\(.*?\)/g, '$1')
+            if (tat.indexOf(' ') != -1) {
+                time = tat.split(' ')[0]
+                title = tat.split(' ')[1]
+            } else title = tat
+
+            html += `<div class="gallery-photo"><a href="${img}" data-fancybox="gallery" class="fancybox" data-thumb="${img}"><img class="no-lazyload photo-img" loading='lazy' decoding="async" src="${img}"></a>`
+            title ? html += `<span class="photo-title">${title}</span>` : ''
+            time ? html += `<span class="photo-time">${time}</span>` : ''
+            html += `</div>`
+        })
+console.log(Fancybox);
+        document.querySelector('.gallery-photos.page').innerHTML = html
+        imgStatus.watch('.photo-img', () => { waterfall('.gallery-photos') })
+        window.Lately && Lately.init({ target: '.photo-time' })
+    }).catch()
+}
+
+</script>
 <script defer src="./js/waterfall.min.js"></script>
 <script defer src="./js/imgStatus.min.js"></script>
 <script defer src="./js/lately.min.js"></script>
