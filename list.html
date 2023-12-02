@@ -160,7 +160,7 @@ function todolist() {
             let content = item.content,
                 title = content.match(/\[(.*?)\]/g)[0].replace(/\[(.*?)\]/,'$1');
             // 去掉多余内容，替换清单内容
-            content = content.replace(/#.*\s/g, '').replace(/(-\s\[\s\]\s)(.*)/g, `<li><i style="margin-right: 5px;" class="fa-regular fa-circle"></i>$2</li>`).replace(/(-\s\[x\]\s)(.*)/g, `<li class="achieve"><i style="margin-right: 5px;" class="fa-regular fa-circle-check"></i>$2</li>`);
+            content = content.replace(/#.*\s/g, '').replace(/```/g, '').replace(/(-\s\[\s\]\s)(.*)/g, `<li><i style="margin-right: 5px;" class="fa-regular fa-circle"></i>$2</li>`).replace(/(-\s\[x\]\s)(.*)/g, `<li class="achieve"><i style="margin-right: 5px;" class="fa-regular fa-circle-check"></i>$2</li>`);
             // 渲染数据
             let div = document.createElement('div');
             div.className = 'list_item';
